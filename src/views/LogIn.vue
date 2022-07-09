@@ -45,6 +45,9 @@ export default {
       // this.kir = data;
       console.log(data);
       console.log(status);
+      if (status === 200 && data == "Login Was Successful !!") {
+        this.$router.push("/home");
+      }
       // if (status === 200) {
       //   this.$router.push("/sign-up");
       // }
