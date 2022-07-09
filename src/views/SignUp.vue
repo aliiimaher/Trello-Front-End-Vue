@@ -2,7 +2,6 @@
   <!-- <form action="action_page.php" style="border: 1px solid #ccc"> -->
   <div class="container">
     <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
     <hr />
 
     <label for="firstName"><b>First name</b></label>
@@ -113,6 +112,7 @@ button {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  margin-left: 380px;
 }
 
 button:hover {

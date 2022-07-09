@@ -1,15 +1,20 @@
 <template>
-  <h2>Login Page</h2>
+  <h1>Login Page</h1>
+  <hr />
   <br />
-  <div class="login">
+  <div class="container">
     <!-- <form id="login"> -->
     <label><b>Email </b> </label>
-    <input v-model="currentUser.email" />
+    <input v-model="currentUser.email" type="text" placeholder="Email" />
     <br /><br />
     <label><b> Password </b> </label>
-    <input v-model="currentUser.password" />
+    <input
+      v-model="currentUser.password"
+      type="password"
+      placeholder="Password"
+    />
     <br /><br />
-    <button @click="logIn" />
+    <button class="signupbtn" @click="logIn">Log in</button>
 
     <br /><br />
     <!-- </form> -->
@@ -52,58 +57,71 @@ export default {
 </script>
 
 <style scoped>
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #6abadeba;
-  font-family: "Arial";
+* {
+  box-sizing: border-box;
 }
-.login {
-  width: 382px;
-  overflow: hidden;
-  margin: auto;
-  margin: 20 0 0 450px;
-  padding: 80px;
-  background: #23463f;
-  border-radius: 15px;
-}
-h2 {
-  text-align: center;
-  color: #277582;
-  padding: 20px;
-}
-label {
-  color: #08ffd1;
-  font-size: 17px;
-}
-#Uname {
-  width: 300px;
-  height: 30px;
+
+/* Full-width input fields */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
   border: none;
-  border-radius: 3px;
-  padding-left: 8px;
+  background: #f1f1f1;
 }
-#Pass {
-  width: 300px;
-  height: 30px;
-  border: none;
-  border-radius: 3px;
-  padding-left: 8px;
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
 }
-#log {
-  width: 300px;
-  height: 30px;
-  border: none;
-  border-radius: 17px;
-  padding-left: 7px;
-  color: blue;
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
 }
-span {
+
+/* Set a style for all buttons */
+button {
+  background-color: #04aa6d;
   color: white;
-  font-size: 17px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  margin-left: 380px;
 }
-a {
-  float: right;
-  background-color: grey;
+
+button:hover {
+  opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,
+.signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 </style>
