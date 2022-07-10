@@ -2,35 +2,55 @@
 <!-- eslint-disable vue/require-v-for-key -->
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
-    // eslint-disable-next-line vue/require-v-for-key
-    <h1 v-for="item in data">{{ item }}</h1>
-    <p></p>
-    <!-- <button @click="getMyWorkspaces">Show my workspaces</button> -->
-
-    <h2>{{ email }}</h2>
+  <div v-for="(item, index) in workspaces" :key="index">
+    <SmallWorkSpaceCard :name="workspaces[index].name" />
+    <!-- <div>{{ workspaces[0].type }}</div> -->
+    <button @click="goToWorkspace(index, status)">Go to Workspace</button>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import SmallWorkSpaceCard from "../components/SmallWorkSpaceCard.vue";
 export default {
-  props: {
-    email: String,
-  },
+  // props: {
+  //   email: String,
+  // },
   components: {
-    ///
+    SmallWorkSpaceCard,
   },
   data() {
-    return {};
+    return {
+      workspaces: [],
+      status: "",
+      theWorkspace: [],
+    };
   },
   methods: {
     async getMyWorkspaces() {
-      const { data } = await axios.get(
+      const { data, status } = await axios.get(
         "http://localhost:8080/get-userworkspaces"
       );
-
+      this.workspaces = data;
+      this.status = status;
       console.log(data);
+    },
+    goToWorkspace(index, status) {
+      console.log(index);
+      if (status === 200) {
+        this.theWorkspace = this.workspaces[index];
+        console.log(this.theWorkspace);
+        this.$router.push("/workspace");
+        // this.$router.push({
+        //   name: "SingleWorkspace",
+        //   params: { data: this.theWorkspace },
+        // }
+        // );
+        // this.$router.push({
+        //   path: "/workspace",
+        //   query: { workspace: this.theWorkspace },
+        // });
+      }
     },
   },
   async created() {

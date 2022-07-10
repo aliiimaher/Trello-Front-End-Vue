@@ -4,6 +4,7 @@ import LogIn from '../views/LogIn.vue'
 import SignUp from '../views/SignUp.vue'
 import StartPage from '../views/StartPage.vue'
 import Workspaces from "../views/Workspaces.vue"
+import SingleWorkspace from "../views/SingleWorkspace.vue"
 
 const routes = [
   {
@@ -25,7 +26,14 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Workspaces
+  },
+  {
+    path: '/workspace',
+    name: 'singleWorkspace',
+    component: SingleWorkspace,
+    props:true
   }
+
 ]
 
 const router = createRouter({
