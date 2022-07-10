@@ -28,11 +28,10 @@ export default {
 }
 
 .board {
-  box-shadow: inset -18px -18px 30px #322f51,
-    inset 18px 18px 30px rgba(0, 0, 0, 0.8);
-  padding: 20px 0px;
-  margin: 20px 100px;
+  box-shadow: -18px -18px 30px #322f51, 18px 18px 30px rgba(0, 0, 0, 0.8);
 
+  margin: 30px;
+  padding: 40px;
   border-radius: 15px;
 }
 </style>
