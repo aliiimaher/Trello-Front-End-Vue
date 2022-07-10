@@ -3,27 +3,29 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div v-for="(item, index) in workspaces" :key="index">
-    <SmallWorkSpaceCard :name="workspaces[index].name" />
+    <WorkSpace :workspace="workspaces[index]" />
     <!-- <div>{{ workspaces[0].type }}</div> -->
-    <button @click="goToWorkspace(index, status)">Go to Workspace</button>
+    <!-- <button @click="showWorkspace(index, status)">Go to Workspace</button> -->
+    <!-- <p v-bind="workspaces[index].visibility"></p> -->
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import SmallWorkSpaceCard from "../components/SmallWorkSpaceCard.vue";
+import WorkSpace from "../components/WorkSpace.vue";
 export default {
   // props: {
   //   email: String,
   // },
   components: {
-    SmallWorkSpaceCard,
+    WorkSpace,
   },
   data() {
     return {
       workspaces: [],
       status: "",
       theWorkspace: [],
+      isVisible: false,
     };
   },
   methods: {
@@ -35,24 +37,14 @@ export default {
       this.status = status;
       console.log(data);
     },
-    goToWorkspace(index, status) {
+    showWorkspace(index, status) {
       console.log(index);
       if (status === 200) {
         this.theWorkspace = this.workspaces[index];
-        console.log(this.theWorkspace);
-        this.$router.push("/workspace");
-        // this.$router.push({
-        //   name: "SingleWorkspace",
-        //   params: { data: this.theWorkspace },
-        // }
-        // );
-        // this.$router.push({
-        //   path: "/workspace",
-        //   query: { workspace: this.theWorkspace },
-        // });
       }
     },
   },
+
   async created() {
     this.kir = await this.getMyWorkspaces();
     // await this.postData()
@@ -61,5 +53,8 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+WorkSpace {
+  border-bottom-color: #009900;
+}
 </style>
