@@ -25,7 +25,8 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Workspaces
-  }
+  },
+
 ]
 
 const router = createRouter({

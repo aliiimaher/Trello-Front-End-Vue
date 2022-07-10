@@ -2,37 +2,49 @@
 <!-- eslint-disable vue/require-v-for-key -->
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
-    // eslint-disable-next-line vue/require-v-for-key
-    <h1 v-for="item in data">{{ item }}</h1>
-    <p></p>
-    <!-- <button @click="getMyWorkspaces">Show my workspaces</button> -->
-
-    <h2>{{ email }}</h2>
+  <div v-for="(item, index) in workspaces" :key="index">
+    <WorkSpace :workspace="workspaces[index]" />
+    <!-- <div>{{ workspaces[0].type }}</div> -->
+    <!-- <button @click="showWorkspace(index, status)">Go to Workspace</button> -->
+    <!-- <p v-bind="workspaces[index].visibility"></p> -->
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import WorkSpace from "../components/WorkSpace.vue";
 export default {
-  props: {
-    email: String,
-  },
+  // props: {
+  //   email: String,
+  // },
   components: {
-    ///
+    WorkSpace,
   },
   data() {
-    return {};
+    return {
+      workspaces: [],
+      status: "",
+      theWorkspace: [],
+      isVisible: false,
+    };
   },
   methods: {
     async getMyWorkspaces() {
-      const { data } = await axios.get(
+      const { data, status } = await axios.get(
         "http://localhost:8080/get-userworkspaces"
       );
-
+      this.workspaces = data;
+      this.status = status;
       console.log(data);
     },
+    showWorkspace(index, status) {
+      console.log(index);
+      if (status === 200) {
+        this.theWorkspace = this.workspaces[index];
+      }
+    },
   },
+
   async created() {
     this.kir = await this.getMyWorkspaces();
     // await this.postData()
@@ -41,5 +53,8 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+WorkSpace {
+  border-bottom-color: #009900;
+}
 </style>
