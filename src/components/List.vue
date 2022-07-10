@@ -2,15 +2,18 @@
 <template>
   <div class="list">
     <h5>name: {{ list.title }}</h5>
-    <div v-for="(item, index) in list" :key="index">
+    <div v-for="(item, index) in list.cards" :key="index">
       <Card :card="list.cards[index]" />
     </div>
   </div>
 </template>
 
 <script>
+import Card from "./Card.vue";
 export default {
-  components: {},
+  components: {
+    Card,
+  },
   methods: {},
   props: {
     list: [],
