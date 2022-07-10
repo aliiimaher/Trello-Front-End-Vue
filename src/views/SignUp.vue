@@ -2,10 +2,11 @@
   <!-- <form action="action_page.php" style="border: 1px solid #ccc"> -->
   <div class="container">
     <h1>Sign Up</h1>
-    <hr />
+    <!-- <hr /> -->
 
     <label for="firstName"><b>First name</b></label>
     <input
+      class="input"
       type="text"
       placeholder="First name"
       v-model="currentUser.firstName"
@@ -13,6 +14,7 @@
 
     <label for="lastName"><b>Last name</b></label>
     <input
+      class="input"
       type="text"
       placeholder="Last name"
       name="email"
@@ -21,6 +23,7 @@
 
     <label for="email"><b>Email</b></label>
     <input
+      class="input"
       type="text"
       placeholder="Email "
       name="email"
@@ -29,6 +32,7 @@
 
     <label for="psw"><b>Password</b></label>
     <input
+      class="input"
       type="text"
       placeholder="Password"
       name="psw"
@@ -119,28 +123,35 @@ button:hover {
   opacity: 1;
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
-}
-
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn,
 .signupbtn {
-  float: left;
-  width: 50%;
+  background: #f27e2e;
+  box-shadow: 4px 4px 8px rgba(244, 86, 37, 0.25);
+  border-radius: 10px;
+  margin: 50px;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: #1c1a2d;
+  width: 324px !important;
+  height: 46px !important;
 }
 
 /* Add padding to container elements */
 .container {
-  padding: 16px;
+  width: 30%;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input {
+  color: #ead2b7;
+  background: #3a365e !important;
+  border-radius: 10px;
 }
 
 /* Clear floats */
 .clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 </style>

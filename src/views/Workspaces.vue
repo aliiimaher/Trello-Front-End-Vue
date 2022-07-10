@@ -54,7 +54,4 @@ export default {
 
 
 <style scoped>
-WorkSpace {
-  border-bottom-color: #009900;
-}
 </style>

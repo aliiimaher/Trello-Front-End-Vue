@@ -1,18 +1,28 @@
 <template>
   <h1>Login Page</h1>
-  <hr />
+  <!-- <hr /> -->
   <br />
   <div class="container">
     <!-- <form id="login"> -->
-    <label><b>Email </b> </label>
-    <input v-model="currentUser.email" type="text" placeholder="Email" />
+    <div class="password-input">
+      <label><b>Email </b> </label>
+      <input
+        class="input"
+        v-model="currentUser.email"
+        type="text"
+        placeholder="Email"
+      />
+    </div>
     <br /><br />
-    <label><b> Password </b> </label>
-    <input
-      v-model="currentUser.password"
-      type="password"
-      placeholder="Password"
-    />
+    <div class="password-input">
+      <label><b> Password </b> </label>
+      <input
+        class="input"
+        v-model="currentUser.password"
+        type="password"
+        placeholder="Password"
+      />
+    </div>
     <br /><br />
     <button class="signupbtn" @click="logIn">Log in</button>
 
@@ -103,22 +113,28 @@ button:hover {
   opacity: 1;
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
-}
-
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn,
+
 .signupbtn {
-  float: left;
-  width: 50%;
+  background: #f27e2e;
+  box-shadow: 4px 4px 8px rgba(244, 86, 37, 0.25);
+  border-radius: 10px;
+  margin: 50px;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: #1c1a2d;
+  margin-top: -9px;
+  height: 46px;
 }
 
 /* Add padding to container elements */
 .container {
-  padding: 16px;
+  padding: 0px 20px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto;
 }
 
 /* Clear floats */
@@ -126,5 +142,17 @@ button:hover {
   content: "";
   clear: both;
   display: table;
+}
+
+.input {
+  background: #3a365e !important;
+  border-radius: 10px;
+  color: #ead2b7;
+}
+
+.password-input {
+  margin-top: -30px 0px;
+  padding: 0px;
+  width: 284px !important;
 }
 </style>
