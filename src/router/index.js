@@ -4,7 +4,7 @@ import LogIn from '../views/LogIn.vue'
 import SignUp from '../views/SignUp.vue'
 import StartPage from '../views/StartPage.vue'
 import Workspaces from "../views/Workspaces.vue"
-
+import PrimeTest from "../components/testFlex.vue"
 const routes = [
   {
     path: '/',
@@ -26,6 +26,11 @@ const routes = [
     name: 'home',
     component: Workspaces
   },
+  {
+    path:'/home/primeTest',
+    name:'PrimeTest',
+    component: PrimeTest
+  }
 
 ]
 

@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -47,17 +47,18 @@ export default {
   },
   methods: {
     async logIn() {
-      const { data, status } = await axios.post(
-        "http://localhost:8080/login",
-        this.currentUser
-      );
-
-      // this.kir = data;
-      console.log(data);
-      console.log(status);
-      if (status === 200 && data == "Login Was Successful !!") {
-        this.$router.push("/home");
-      }
+      this.$router.push("/home");
+      // const { data, status } = await axios.post(
+      //   "http://localhost:8080/login",
+      //   this.currentUser
+      // );
+      //
+      // // this.kir = data;
+      // console.log(data);
+      // console.log(status);
+      // if (status === 200 && data == "Login Was Successful !!") {
+      //   this.$router.push("/home");
+      // }
       // if (status === 200) {
       //   this.$router.push("/sign-up");
       // }
