@@ -4,9 +4,14 @@
     <h3><span class="title">Title:</span> {{ board.title }}</h3>
     <h4>Visibility: {{ board.visibility }}</h4>
     <h5>Lists:</h5>
-    <div v-for="(item, index) in board.lists" :key="index">
-      <List :list="board.lists[index]" />
+    <div class="grid">
+      <div class="col-4 sm:col-5" v-for="(item, index) in board.lists" :key="index">
+        <List :list="board.lists[index]" />
+      </div>
     </div>
+<!--    <div v-for="(item, index) in board.lists" :key="index">-->
+<!--      <List :list="board.lists[index]" />-->
+<!--    </div>-->
   </div>
 </template>
 
