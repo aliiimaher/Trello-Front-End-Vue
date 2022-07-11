@@ -1,17 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div id="app">
-    <StartPage />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import StartPage from "./views/StartPage.vue";
+
 
 export default {
   components: {
-    StartPage,
+
   },
 };
 </script>
